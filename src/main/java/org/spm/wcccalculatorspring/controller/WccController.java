@@ -5,8 +5,6 @@ import org.spm.wcccalculatorspring.service.WCCFileHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/wcc")
 @CrossOrigin(origins = "http://localhost:3000")  // Enable CORS for React frontend
@@ -15,17 +13,18 @@ public class WccController {
     @Autowired
     private WCCFileHandler wccFileHandler;
 
-    // Endpoint to analyze a project path (GET request)
+    // Endpoint to analyze a project path (POST request)
     @PostMapping("/analyze")
     public WCCProject analyzeProject(@RequestParam String projectKey, @RequestParam String projectPath) {
         return wccFileHandler.analyzeProject(projectKey, projectPath);
     }
 
-    // Endpoint to retrieve all project analysis results
-    @GetMapping("/result/")
-    public int getProjectData(@RequestParam String projectKey, @RequestParam String projectPath){
+    // Endpoint to retrieve WCC value of a project
+    @GetMapping("/result")
+    public int getProjectWCC(@RequestParam String projectKey, @RequestParam String projectPath) {
         return wccFileHandler.getWccValue(projectKey, projectPath);
     }
 }
+
 
 
