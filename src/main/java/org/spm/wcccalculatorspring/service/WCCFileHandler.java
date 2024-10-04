@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.util.Objects;
 
-@Service  // Correctly annotating as a service
+@Service  
 public class WCCFileHandler {
 
     public WCCProject analyzeProject(String projectKey, String projectPath) {
