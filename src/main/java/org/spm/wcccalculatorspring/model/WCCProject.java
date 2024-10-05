@@ -1,15 +1,29 @@
 package org.spm.wcccalculatorspring.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Document(collection = "wccProjects")
 public class WCCProject {
+
+    @Id
+    private String id;
 
     private String projectKey;
     private String sourcePath;
     private Map<String, Integer> fileWCCMap = new HashMap<>();
     private int wccValue;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
     // Getter and Setter for projectKey
     public String getProjectKey() {
         return projectKey;

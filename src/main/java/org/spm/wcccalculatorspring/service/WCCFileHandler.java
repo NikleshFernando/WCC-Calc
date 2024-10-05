@@ -1,14 +1,16 @@
 package org.spm.wcccalculatorspring.service;
 
 import org.spm.wcccalculatorspring.model.WCCProject;
+import org.spm.wcccalculatorspring.repo.WCCRepository;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.util.Objects;
 
-@Service  
+@Service
 public class WCCFileHandler {
 
+    private WCCRepository wccRepository;
     public WCCProject analyzeProject(String projectKey, String projectPath) {
         WCCProject project = new WCCProject();
         project.setProjectKey(projectKey);
@@ -17,6 +19,7 @@ public class WCCFileHandler {
         File dir = new File(projectPath);
         readFiles(dir, project);  // Traverse directory and calculate WCC for each file
 
+        wccRepository.save(project);
         return project;  // Return the complete project analysis
     }
 

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/wcc")
-@CrossOrigin(origins = "http://localhost:3000")  // Enable CORS for React frontend
+//@CrossOrigin(origins = "http://localhost:3000")  // Enable CORS for React frontend
 public class WccController {
 
     @Autowired
