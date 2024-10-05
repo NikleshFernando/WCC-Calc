@@ -44,7 +44,8 @@ public class WCCProject {
 
     // Method to add a file's WCC value to the map
     public void addFileWCC(String fileName, int wcc) {
-        this.fileWCCMap.put(fileName, wcc);
+        String safeFileName = fileName.replace(".", "_");
+        this.fileWCCMap.put(safeFileName, wcc);
     }
 
     // Getter for fileWCCMap

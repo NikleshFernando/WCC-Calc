@@ -2,6 +2,7 @@ package org.spm.wcccalculatorspring.service;
 
 import org.spm.wcccalculatorspring.model.WCCProject;
 import org.spm.wcccalculatorspring.repo.WCCRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -10,6 +11,7 @@ import java.util.Objects;
 @Service
 public class WCCFileHandler {
 
+    @Autowired
     private WCCRepository wccRepository;
     public WCCProject analyzeProject(String projectKey, String projectPath) {
         WCCProject project = new WCCProject();
